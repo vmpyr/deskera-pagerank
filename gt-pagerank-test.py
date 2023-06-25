@@ -1,7 +1,7 @@
 import graph_tool.all as gt
 
 
-g = gt.collection.ns["ego_social/facebook_0"]
+g = gt.load_graph("./facebook.graphml")
 
 gt.graph_draw(g, g.vp._pos, output_size=(1000, 1000))
 
