@@ -18,7 +18,7 @@ print(f"Number of nodes in the graph are {count}")
 pagerank_values = nx.pagerank(graph)
 
 # sorting the pagerank_values dictionary based on items
-pageranks = sorted(pagerank_values.items(),key=lambda v:(v[1],v[0]),reverse=True)
+pageranks = sorted(pagerank_values.items(), key=lambda v:(v[1],v[0]), reverse=True)
 
 print("\nThe nodes ranked by page rank are\n")
 for i in pageranks:
