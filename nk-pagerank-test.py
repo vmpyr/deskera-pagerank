@@ -11,7 +11,7 @@ pagerank_data = nk.centrality.PageRank(g, tol=1e-06).run().scores()
 
 pagerank_values = {}
 for i, val in enumerate(pagerank_data):
-    pagerank_values[i+1] = val
+    pagerank_values[i] = val
 
 pageranks = sorted(pagerank_values.items(), key=lambda v:(v[1],v[0]), reverse=True)
 
