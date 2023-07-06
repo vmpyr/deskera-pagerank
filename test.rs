@@ -2,14 +2,21 @@ use std::io::{self, Write};
 use std::process::Command;
 
 fn main() {
-    print!("Enter a command: ");
+    print!("Enter path to script: ");
     io::stdout().flush().unwrap();
 
-    let mut input = String::new();
-    io::stdin().read_line(&mut input).unwrap();
-    let input = input.trim();
+    let mut scr = String::new();
+    io::stdin().read_line(&mut scr).unwrap();
+    let scr = scr.trim();
 
-    let output = match Command::new("sh").arg("-c").arg(input).output() {
+    print!("Enter path to .graphml file: ");
+    io::stdout().flush().unwrap();
+
+    let mut path = String::new();
+    io::stdin().read_line(&mut path).unwrap();
+    let path = path.trim();
+
+    let output = match Command::new(scr).arg(path).output() {
         Ok(output) => output,
         Err(_) => todo!()
     };
