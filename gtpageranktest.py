@@ -9,12 +9,11 @@ args = parser.parse_args()
 g = load_graph(args.path)
 
 # gt.graph_draw(g, g.vp._pos, output_size=(1000, 1000))
-
-pr = pagerank(g)
+pr = pagerank(g, weight=g.edge_properties['weight'])
 
 pagerank_values = {}
-for vertex in g.vertices():
-    pagerank_values[vertex] = pr[vertex]
+for vertex in g.get_vertices():
+    pagerank_values[vertex+1] = pr[vertex]
 
 pageranks = sorted(pagerank_values.items(), key=lambda v:(v[1],v[0]), reverse=True)
 
